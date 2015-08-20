@@ -1,10 +1,16 @@
 import os
-from flask import Flask, url_for, render_template
+from flask import Flask, url_for, render_template, request
 app = Flask(__name__)
 
+##@app.route('/')
+##def helloMain():
+##    return "Goodbye cruel world!"
+##
+
 @app.route('/')
-def helloMain():
-    return "Goodbye cruel world!"
+@app.route('/<name>')
+def hello(name=None):
+    return render_template('Test.html', name=name)
 
 def ftoc(ftemp):
     return (ftemp-32.0)*(5.0/9.0)
@@ -12,20 +18,18 @@ def ftoc(ftemp):
 def milesToKM(miles):
     return miles * 1.60934
 
-@app.route('/hello')
-@app.route('/hello/<name>')
-def hello(name=None):
-    return render_template('Test.html', name=name)
+@app.route('/ftoc')
+def tempConvert():
+    return render_template('ftoc.html')
 
-@app.route('/ftoc/<ftempString>')
-def convertFtoC(ftempString):
-    ftemp = 0.0
+@app.route('/doTempConvert')
+def doTempConvert():
     try:
-        ftemp = float(ftempString)
+        ftemp = float(request.args['ftemp'])
         ctemp = ftoc(ftemp)
-        return "In Farenheit: " + ftempString + " In Celsius: " + str(ctemp)
+        return render_template('tempResults.html', showFtemp = ftemp, showCtemp = ctemp)
     except ValueError:
-        return "Sorry. Couldn't convert " + ftempString + " to a number."
+        return render_template('ftoc.html')
 
 @app.route('/mtokm/<milesString>')
 def convertMilesToKM(milesString):
