@@ -1,8 +1,9 @@
-from flask import Flask
+import os
+from flask import Flask, url_for, render_template
 app = Flask(__name__)
 
 @app.route('/')
-def hello():
+def helloMain():
     return "Goodbye cruel world!"
 
 def ftoc(ftemp):
@@ -10,6 +11,11 @@ def ftoc(ftemp):
 
 def milesToKM(miles):
     return miles * 1.60934
+
+@app.route('/hello')
+@app.route('/hello/<name>')
+def hello(name=None):
+    return render_template('Test.html', name=name)
 
 @app.route('/ftoc/<ftempString>')
 def convertFtoC(ftempString):
@@ -32,5 +38,5 @@ def convertMilesToKM(milesString):
         return "Something bad happened. " + milesString + " is invalid."
 
 if __name__=="__main__":
-    app.run(port=5000)
+    app.run(port=5001)
     app.run(debug=False)
