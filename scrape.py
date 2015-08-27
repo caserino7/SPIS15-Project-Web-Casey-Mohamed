@@ -15,7 +15,7 @@ menuPages['64 Degrees']=prefix + "64"
 page = requests.get(menuPages['Canyon Vista'])
 tree = html.fromstring(page.text)
 
-menuItems = tree.xpath('//form/div[@id="siteContainer"]' +
+vistaItems = tree.xpath('//form/div[@id="siteContainer"]' +
                        '/div[@id="contentArea"]' +
                        '/div[@id="MenuListing_divRestaurants"]' +
                        '/div' +
@@ -24,11 +24,25 @@ menuItems = tree.xpath('//form/div[@id="siteContainer"]' +
                        '/li/a' +
                        '/text()')
 
-print "menuItems=" + str(menuItems)
+print  [vistaItems]
 
-@app.route('/')
-def main():
-    return render_template('main.html', menu=menuItems)
+##page = requests.get(menuPages['64 Degrees'])
+##tree = html.fromstring(page.text)
+
+##degreeItems = tree.xpath('//form/div[@id="siteContainer"]' +
+##                       '/div[@id="contentArea"]' +
+##                       '/div[@id="MenuListing_divRestaurants"]' +
+##                       '/div' +
+##                       '/table[@id="MenuListing_tblDaily"]' +
+##                       '/tr/td/ul[@class="itemList"]' +
+##                       '/li/a' +
+##                       '/text()')
+##
+##print "degreeItems=" + str(degreeItems)
+##
+##@app.route('/')
+##def main():
+##    return render_template('main.html', menu=menuItems)
 
 if __name__=="__main__":
     app.run(port=5000)
