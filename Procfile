@@ -1,1 +1,1 @@
-web: gunicorn scrape:app --log-file=-
+eb: gunicorn scrape:app --log-file=-
