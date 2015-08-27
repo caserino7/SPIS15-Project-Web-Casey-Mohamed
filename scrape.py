@@ -39,10 +39,10 @@ print  [vistaItems]
 ##                       '/text()')
 ##
 ##print "degreeItems=" + str(degreeItems)
-##
-##@app.route('/')
-##def main():
-##    return render_template('main.html', menu=menuItems)
+
+@app.route('/')
+def main():
+    return render_template('main.html', menu=menuItems)
 
 if __name__=="__main__":
     app.run(port=5000)
