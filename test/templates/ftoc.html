@@ -1,0 +1,15 @@
+<!doctype html>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<title>Input a Temperature</title>
+<html>
+<body>
+
+<h1>Convert Farenheit to Celsius</h1>
+
+<form action='/doTempConvert'>
+<p>Farenheit:</p>
+<input type="text" name="ftemp">
+</form>
+
+</body>
+</html>
