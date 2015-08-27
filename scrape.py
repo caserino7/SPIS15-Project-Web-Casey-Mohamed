@@ -24,7 +24,7 @@ vistaItems = tree.xpath('//form/div[@id="siteContainer"]' +
                        '/li/a' +
                        '/text()')
 
-print  [vistaItems]
+print "Menu Items:", str(vistaItems)
 
 ##page = requests.get(menuPages['64 Degrees'])
 ##tree = html.fromstring(page.text)
@@ -42,7 +42,7 @@ print  [vistaItems]
 
 @app.route('/')
 def main():
-    return render_template('main.html', menu=menuItems)
+    return render_template('main.html')
 
 if __name__=="__main__":
     app.run(port=5000)
