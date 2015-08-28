@@ -2,9 +2,8 @@ import os
 from flask import Flask, url_for, render_template, request
 from lxml import html
 import requests
-from ratings import ratings
 
-app = Flask(__name__)
+
 menuPages = {}
 prefix="http://hdh.ucsd.edu/DiningMenus/default.aspx?i="
 
@@ -25,7 +24,6 @@ vistaItems = tree.xpath('//form/div[@id="siteContainer"]' +
                        '/li/a' +
                        '/text()')
 
-print str(vistaItems)
 
 ##page = requests.get(menuPages['64 Degrees'])
 ##tree = html.fromstring(page.text)
@@ -41,10 +39,6 @@ print str(vistaItems)
 ##
 ##print "degreeItems=" + str(degreeItems)
 
-@app.route('/')
-def main():
-    return render_template('main.html')
 
 if __name__=="__main__":
-    app.run(port=5000)
-    app.run(debug=False)
+   print str(vistaItems) 

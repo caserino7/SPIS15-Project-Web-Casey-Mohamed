@@ -7,3 +7,13 @@ ul  {text-align: center}
 ul{
     list-style-type:none
 }
+
+.glyphicon-thumbs-down{
+    color: red;
+}
+
+.glyphicon-thumbs-up{
+    color: green;
+}
+
+

@@ -1,4 +1,4 @@
-ratings = {"Canyon Vista": {
+ratingsIndex = {"Canyon Vista": {
     'Assorted Summer Scones' : True, 'Beans' : True, 'Blueberry Muffin' : True,
     'Cage Free Scrambled Eggs' : True,
     'Carrots & Jalapenos' : True, 'Flatbread Breakfast Pizza' : True,
