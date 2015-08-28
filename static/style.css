@@ -1,3 +1,9 @@
 body {
-  background-color: #ffff99;
+  background-color: #00A3FF;
+}
+h1 {text-align: center}
+p {text-align: center}
+ul  {text-align: center}
+ul{
+    list-style-type:none
 }
