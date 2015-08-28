@@ -2,6 +2,7 @@ import os
 from flask import Flask, url_for, render_template, request
 from lxml import html
 import requests
+from ratings import ratings
 
 app = Flask(__name__)
 menuPages = {}
@@ -24,7 +25,7 @@ vistaItems = tree.xpath('//form/div[@id="siteContainer"]' +
                        '/li/a' +
                        '/text()')
 
-print "Menu Items:", str(vistaItems)
+print str(vistaItems)
 
 ##page = requests.get(menuPages['64 Degrees'])
 ##tree = html.fromstring(page.text)
