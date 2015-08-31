@@ -1,0 +1,6 @@
+import scrape
+
+def rrg():
+    for x in vistaItems:
+       print str(x  = randInt(0,1))
+    
