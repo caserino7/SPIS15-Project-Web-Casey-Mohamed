@@ -49,7 +49,9 @@ def renderMain():
 def renderCV():
     #items variable pulls to scrape.py
     #ratings variable pulls from ratings.py and ratings dictionary
-    return render_template('CV.html', items= scrape.vistaItems,
+    return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
+                           lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
+                           dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),                           
                            ratings = ratings.ratingsIndex["Canyon Vista"])
 
 #defines 65d's page

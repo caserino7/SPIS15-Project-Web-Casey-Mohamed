@@ -14,7 +14,7 @@
 
 <body>
 
-<h1>Canyon Vista<h1>
+<h1>Canyon Vista</h1>
 <table style="width:70%" align="center">
   <tr>
     <td class="menuType">Breakfast</td>
@@ -24,13 +24,25 @@
   <tr>
     <td>
       <ul>
-	{% for item in items %}
+	{% for item in breakfast %}
 	<li>{{ item }}{{ rating_for(item, ratings)|safe }} </li>
 	{% endfor %} 
       </ul>
     </td>
-    <td></td>
-    <td></td>
+    <td>
+      <ul>
+	{% for item in lunch %}
+	<li>{{ item }}{{ rating_for(item, ratings)|safe }} </li>
+	{% endfor %} 
+      </ul>
+    </td>
+    <td>
+      <ul>
+	{% for item in dinner %}
+	<li>{{ item }}{{ rating_for(item, ratings)|safe }} </li>
+	{% endfor %} 
+      </ul>
+    </td>
   </tr>
 </table>
 
