@@ -1,4 +1,6 @@
 import os
+import psycopg2
+import urlparse
 #module for building web apps
 from flask import Flask, url_for, render_template, request
 #module for processing html and xml
@@ -10,8 +12,18 @@ import scrape
 import ratings 
 
 
-
 app = Flask(__name__)
+
+#urlparse.uses_netloc.append("postgres")
+#url = urlparse.urlparse(os.environ["DATABASE_URL"])
+
+#conn = psycopg2.connect(
+#    database=url.path[1:],
+#    user=url.username,
+#    password=url.password,
+#    host=url.hostname,
+#    port=url.port
+#)
 
 #input = item and item's rating
 #outputs thumbs up/down
