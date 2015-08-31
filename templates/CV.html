@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Canyon Vista</title>
+  <title>Canyon Vista Menu</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -9,13 +9,11 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<style>
-</style>
-
 <body>
 
-<h1>Canyon Vista</h1>
-<table style="width:70%" align="center">
+<h1 class="title">Canyon Vista</h1>
+<br>
+<table align="center">
   <tr>
     <td class="menuType">Breakfast</td>
     <td class="menuType">Lunch</td>
@@ -23,25 +21,19 @@
   </tr>
   <tr>
     <td>
-      <ul>
 	{% for item in breakfast %}
-	<li>{{ item }}{{ rating_for(item, ratings)|safe }} </li>
+	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
 	{% endfor %} 
-      </ul>
     </td>
     <td>
-      <ul>
 	{% for item in lunch %}
-	<li>{{ item }}{{ rating_for(item, ratings)|safe }} </li>
+	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
 	{% endfor %} 
-      </ul>
     </td>
     <td>
-      <ul>
 	{% for item in dinner %}
-	<li>{{ item }}{{ rating_for(item, ratings)|safe }} </li>
+	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
 	{% endfor %} 
-      </ul>
     </td>
   </tr>
 </table>

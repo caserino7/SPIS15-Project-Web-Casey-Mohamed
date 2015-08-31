@@ -30,11 +30,11 @@ def rating_for (item, ratings):
 
 #defines image file for thumbs up from glyphicon 
 def thumbsUp():
-    return '<span class="glyphicon glyphicon-thumbs-up"></span>' 
+    return ' <span class="glyphicon glyphicon-thumbs-up"></span>' 
 
 #defines image file for thumbs down from glyphicon 
 def thumbsDown():
-    return '<span class="glyphicon glyphicon-thumbs-down"></span>'
+    return ' <span class="glyphicon glyphicon-thumbs-down"></span>'
 
 #helps import ratings dictionary
 app.jinja_env.globals.update(rating_for=rating_for)
