@@ -9,14 +9,30 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <style>
 </style>
+
 <body>
 <h1>Canyon Vista<h1>
-<ul>
-  {% for item in items %}
-  <li>{{ item }}{{ rating_for(item, ratings)|safe }} </li>
-  {% endfor %} 
-</ul>
+<table style="width:70%" align="center">
+  <tr>
+    <td class="menuType">Breakfast</td>
+    <td class="menuType">Lunch</td>
+    <td class="menuType">Dinner</td>
+  </tr>
+  <tr>
+    <td>
+      <ul>
+	{% for item in items %}
+	<li>{{ item }}{{ rating_for(item, ratings)|safe }} </li>
+	{% endfor %} 
+      </ul>
+    </td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
 </body>
 </html>
