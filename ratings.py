@@ -1,3 +1,5 @@
+#true= thumbs up 
+#false= thumbs down
 ratingsIndex = {"Canyon Vista": {
     'Assorted Summer Scones' : True, 'Beans' : True, 'Blueberry Muffin' : True,
     'Cage Free Scrambled Eggs' : True,
