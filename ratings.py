@@ -1,74 +1,74 @@
-#true= thumbs up 
-#false= thumbs down
+#True,: thumbs up 
+#False,: thumbs down
 ratingsIndex = {"Canyon Vista": {
-    'Assorted Summer Scones'=1
-    'Beans'=1
-    'Blueberry Muffin'=0
-    'Breakfast Streusel'=1
-    'Cage Free Scrambled Eggs'=0
-    'Carrots & Jalapenos'=0
-    'Pork Sausage Links'=0
-    'Whole Wheat English Muffin'=0
-    'Chocolate Chip Pancakes'=1
-    'Corned Beef Hash'=0
-    'Fresh Tortillas'=0
-    'Gluten Friendly Bread'=1
-    'Hash Brown Potatoes'=0
-    'Zucchini Breakfast Muffins'=0
-    'Scrambled Egg Whites'=0
-    'Smoked Bacon'=1
-    'Steelcut Oatmeal'=1
-    'Veggie Sausage'=0
-    'Waffle'=1
-    'Cereal with Milk'=0
-    'Cut Fresh Fruit'=1
-    'Whole Apple'=1
-    'Whole Banana'=0
-    'Whole Orange'=0
-    'Yogurt Bar'=0
-    'Seafood Veracruz'=0
-    'Beef and Broccoli'=1
-    'Lo Mein Noodle'=0
-    'Stir Fried Rice'=1
-    'Stir Fry Veg Mix'=1
-    'Tuna Super Sub'=0
-    'Turkey & Swiss Super Sub'=0
-    'Vegetarian Super Wrap'=0
-    'Cheeseburger'=0
-    'Fish Sandwich'=0
-    'Gardein Burger'=0
-    'Hamburger'=1
-    'Hot Dog'=1
-    'Crispy French Fries'=0
-    'Cheese Pizza'=1
-    'Hawaiian Pizza'=1
-    'Pepperoni Pizza'=1
-    'BYO Pasta Bar (Alfredo Nutritional Sample)'=1
-    'Garlic Bread'=1
-    'Jalapeno Cornbread'=1
-    'Corn Chowder Soup'=0
-    'Vegetarian Chili'=0
-    'Carrot Cake'=0
-    'Chocolate Pudding'=0
-    'Lemon Jello with Mandarin Oranges'=1
-    'Rice Krispy Treats'=0
-    'Curried Salmon'=0
-    'Carved Roast Turkey'=1
-    'Cajun Dirty  Rice'=1
-    'Roasted Red Potatoes'=0
-    'Steamed Vegetable Mix'=1
-    'Cheese Pizza'=0
-    'Hawaiian Pizza'=0
-    'Pepperoni Pizza'=0
-    'BYO Pasta Bar (Alfredo Nutritional Sample)'=1
-    'Garlic Bread'=1
-    'Jalapeno Cornbread'=0
-    'Corn Chowder Soup'=0
-    'Vegetarian Chili'=0
-    'Carrot Cake'=1
-    'Chocolate Pudding'=1
-    'Lemon Jello with Mandarin Oranges'=0
-    'Rice Krispy Treats'=1
+    'Assorted Summer Scones':True,
+    'Beans' :True,
+    'Blueberry Muffin':False,
+    'Breakfast Streusel':True,
+    'Cage Free Scrambled Eggs':False,
+    'Carrots & Jalapenos':False,
+    'Pork Sausage Links':False,
+    'Whole Wheat English Muffin':False,
+    'Chocolate Chip Pancakes':True,
+    'Corned Beef Hash':False,
+    'Fresh Tortillas':False,
+    'Gluten Friendly Bread':True,
+    'Hash Brown Potatoes':False,
+    'Zucchini Breakfast Muffins':False,
+    'Scrambled Egg Whites':False,
+    'Smoked Bacon':True,
+    'Steelcut Oatmeal':True,
+    'Veggie Sausage':False,
+    'Waffle':True,
+    'Cereal with Milk':False,
+    'Cut Fresh Fruit':True,
+    'Whole Apple':True,
+    'Whole Banana':False,
+    'Whole Orange':False,
+    'Yogurt Bar':False,
+    'Seafood Veracruz':False,
+    'Beef and Broccoli':True,
+    'Lo Mein Noodle':False,
+    'Stir Fried Rice':True,
+    'Stir Fry Veg Mix':True,
+    'Tuna Super Sub':False,
+    'Turkey & Swiss Super Sub':False,
+    'Vegetarian Super Wrap':False,
+    'Cheeseburger':False,
+    'Fish Sandwich':False,
+    'Gardein Burger':False,
+    'Hamburger':True,
+    'Hot Dog':True,
+    'Crispy French Fries':False,
+    'Cheese Pizza':True,
+    'Hawaiian Pizza':True,
+    'Pepperoni Pizza':True,
+    'BYO Pasta Bar (Alfredo Nutritional Sample)':True,
+    'Garlic Bread':True,
+    'Jalapeno Cornbread':True,
+    'Corn Chowder Soup':False,
+    'Vegetarian Chili':False,
+    'Carrot Cake':False,
+    'Chocolate Pudding':False,
+    'Lemon Jello with Mandarin Oranges':True,
+    'Rice Krispy Treats':False,
+    'Curried Salmon':False,
+    'Carved Roast Turkey':True,
+    'Cajun Dirty  Rice':True,
+    'Roasted Red Potatoes':False,
+    'Steamed Vegetable Mix':True,
+    'Cheese Pizza':False,
+    'Hawaiian Pizza':False,
+    'Pepperoni Pizza':False,
+    'BYO Pasta Bar (Alfredo Nutritional Sample)':True,
+    'Garlic Bread':True,
+    'Jalapeno Cornbread':False,
+    'Corn Chowder Soup':False,
+    'Vegetarian Chili':False,
+    'Carrot Cake':True,
+    'Chocolate Pudding':True,
+    'Lemon Jello with Mandarin Oranges':False,
+    'Rice Krispy Treats':True,
 
     }, "Cafe Ventana": {
 
