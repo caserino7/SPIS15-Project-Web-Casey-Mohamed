@@ -1,1 +1,2 @@
-web: gunicorn hdh:app --log-file=-
+
+web: python hdh.py
