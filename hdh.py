@@ -42,9 +42,9 @@ def rating_for (item, ratings):
     else:
         return ''
 
-def CVratings():
+def getRatings(diningHall):
     db = {}
-    cursor.execute("""SELECT item,rating FROM ratings WHERE dining_hall='Canyon Vista';""")
+    cursor.execute("SELECT item,rating FROM ratings WHERE dining_hall='" + diningHall + "';")
     while True:
         db_row = cursor.fetchone()
         if db_row == None:
@@ -76,7 +76,7 @@ def renderCV():
     return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
                            lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
                            dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
-                           ratings = CVratings())
+                           ratings = getRatings('Canyon Vista'))
                            #ratings = ratings.ratingsIndex["Canyon Vista"])
 
 #defines 65d's page
