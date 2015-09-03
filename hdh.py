@@ -96,8 +96,8 @@ def addRating(diningHall, item):
     conn.commit()
     print "dcj"
     print "url_for = " + url_for('renderCV')
-    print "redirect(url..) = " + redirect(url_for('renderCV'))
-    return redirect(url_for('renderCV'))
+    #print "redirect(url..) = " + redirect(url_for('renderCV'))
+    return redirect('https://www.google.com/')
     #return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
     #                       lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
     #                       dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
