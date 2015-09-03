@@ -83,6 +83,8 @@ def renderMain():
 
 @app.route('/addRating/<diningHall>/<item>')
 def addRating(diningHall, item):
+    print "request.method = " + request.method
+    print "dining hall: " + diningHall + " item: " + item
     rating = request.form['rating']
     print "dining hall: " + diningHall + " item: " + item + " rating: " + rating
     cursor.execute("INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");")
@@ -98,6 +100,7 @@ def addRating(diningHall, item):
 def renderCV():
     #items variable pulls to scrape.py
     #ratings variable pulls from ratings.py and ratings dictionary
+    print "This is renderCV()"
     return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
                            lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
                            dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
