@@ -42,15 +42,28 @@ def rating_for (item, ratings):
     else:
         return ''
 
-def getRatings(diningHall):
-    db = {}
+#gets the ratings from the database
+def getRatingsFromHall(diningHall):
+    ratings = {}
     cursor.execute("SELECT item,rating FROM ratings WHERE dining_hall='" + diningHall + "';")
     while True:
-        db_row = cursor.fetchone()
-        if db_row == None:
+        data = cursor.fetchone()
+        if data == None:
             break
-        db[str(db_row[0])] = db_row[1]
-    return db
+        ratings[str(data[0])] = data[1]
+    return ratings
+
+#adds a rating to the database
+def addRating(diningHall, item, rating):
+    cursor.execute("INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");")
+
+#changes the rating of a specific item at a specific dining hall
+def changeRating(diningHall, item, newRating):
+    cursor.execute("UPDATE ratings SET rating='" + newRating + "' WHERE diningHall='" + diningHall + "' and item='" + item + "';")
+
+#deletes a rating from the database
+def deleteRating(diningHall, item):
+    cursor.execute("DELETE FROM ratings WHERE diningHall='" + diningHall + "' and item='" + item + "';")
 
 #defines image file for thumbs up from glyphicon 
 def thumbsUp():
@@ -76,7 +89,7 @@ def renderCV():
     return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
                            lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
                            dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
-                           ratings = getRatings('Canyon Vista'))
+                           ratings = getRatingsFromHall('Canyon Vista'))
                            #ratings = ratings.ratingsIndex["Canyon Vista"])
 
 #defines 65d's page
