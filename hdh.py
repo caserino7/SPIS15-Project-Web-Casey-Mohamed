@@ -92,7 +92,7 @@ def addRating(diningHall, item):
     print command
     cursor.execute(command)
     print "dcj"
-    return redirect('/canyonVista')
+    return redirect('/canyonvista')
     #return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
     #                       lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
     #                       dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
