@@ -92,6 +92,8 @@ def addRating(diningHall, item):
     print cursor
     print command
     cursor.execute(command)
+    print "Commiting"
+    cursor.commit()
     print "dcj"
     return redirect(url_for('renderCV'))
     #return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
