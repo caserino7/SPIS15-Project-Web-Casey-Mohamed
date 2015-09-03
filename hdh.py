@@ -119,7 +119,7 @@ def renderCV():
 #defines 65d's page
 @app.route('/64degrees')
 def render64d():
-    return render_template('64degrees.html')
+    return redirect('https://www.google.com')
 
 #defines the pines page
 @app.route('/pines')
