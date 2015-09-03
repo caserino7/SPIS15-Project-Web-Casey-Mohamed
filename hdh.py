@@ -9,7 +9,7 @@ import requests
 #imports scrape
 import scrape
 #imports ratings dictionary
-import ratings 
+import ratings
 
 
 app = Flask(__name__)
@@ -83,7 +83,7 @@ def renderMain():
 
 @app.route('/addRating/<diningHall>/<item>')
 def addRating(diningHall, item):
-    rating = User.get(request.form('rating'))
+    rating = request.form('rating')
     cursor.execute("INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");")
     return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
                            lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
