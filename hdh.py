@@ -84,6 +84,7 @@ def renderMain():
 
 @app.route('/addRating/<diningHall>/<item>', methods=['GET', 'POST'])
 def addRating(diningHall, item):
+    cursor = conn.cursor()
     print "request.method = " + request.method
     print "dining hall: " + diningHall + " item: " + item
     rating = request.form['rating']
