@@ -83,6 +83,7 @@ def renderMain():
 
 @app.route('/addRating/<diningHall>/<item>')
 def addRating(diningHall, item):
+    rating = User.get(request.form('rating'))
     cursor.execute("INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");")
     return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
                            lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
@@ -97,7 +98,8 @@ def renderCV():
     return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
                            lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
                            dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
-                           ratings = getRatingsFromHall('Canyon Vista'))
+                           ratings = getRatingsFromHall('Canyon Vista'),
+                           diningHall = 'Canyon Vista')
 
 #defines 65d's page
 @app.route('/64degrees')
