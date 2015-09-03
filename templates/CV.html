@@ -23,11 +23,19 @@
     <td>
 	{% for item in breakfast %}
 	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
+	<button type="button">
 	{% endfor %} 
     </td>
     <td>
 	{% for item in lunch %}
 	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
+	<form action="">
+	  Rating:
+	  <select>
+	    <option value="Good">Good</option>
+	    <option value="Bad">Bad</option>
+	  </select>
+	</form>
 	{% endfor %} 
     </td>
     <td>
