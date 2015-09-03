@@ -44,6 +44,7 @@ def rating_for (item, ratings):
 
 #gets the ratings from the database
 def getRatingsFromHall(diningHall):
+    print cursor
     ratings = {}
     cursor.execute("SELECT item,rating FROM ratings WHERE dining_hall='" + diningHall + "';")
     while True:
@@ -105,7 +106,7 @@ def renderCV():
     #items variable pulls to scrape.py
     #ratings variable pulls from ratings.py and ratings dictionary
     print "This is renderCV()"
-    return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
+    return render_template('CV.html', breakfast = scrape.allMealItems('Canyon Vista', 'Breakfast'),
                            lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
                            dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
                            ratings = getRatingsFromHall('Canyon Vista'),
