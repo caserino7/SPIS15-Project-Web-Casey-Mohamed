@@ -40,7 +40,7 @@
 	{% for item in lunch %}
 	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
 	<div align="right">
-	  <form action="/addRating/{{diningHall}}/{{item}}" >
+	  <form action="/addRating/{{diningHall}}/{{item}}" method="post" >
 	    <select name="rating"  >
 	      <option value="Neutral" >-</option>
 	      <option value="True" > Good </a></option>
