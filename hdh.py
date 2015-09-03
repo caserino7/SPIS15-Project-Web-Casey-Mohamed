@@ -83,12 +83,15 @@ def renderMain():
 
 @app.route('/addRating/<diningHall>/<item>')
 def addRating(diningHall, item):
-    rating = request.form('rating')
+    rating = request.form['rating']
+    print "dining hall: " + diningHall + " item: " + item + " rating: " + rating
     cursor.execute("INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");")
-    return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
-                           lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
-                           dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
-                           ratings = getRatingsFromHall('Canyon Vista'))
+    return redirect('/canyonVista')
+    #return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
+    #                       lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
+    #                       dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
+    #                       ratings = getRatingsFromHall('Canyon Vista'),
+    #                       diningHall = diningHall)
 
 #defines CV page 
 @app.route('/canyonvista')
