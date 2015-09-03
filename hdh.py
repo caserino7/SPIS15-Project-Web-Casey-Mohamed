@@ -84,7 +84,6 @@ def renderMain():
 
 @app.route('/addRating/<diningHall>/<item>', methods=['GET', 'POST'])
 def addRating(diningHall, item):
-    cursor = conn.cursor()
     print "request.method = " + request.method
     print "dining hall: " + diningHall + " item: " + item
     rating = request.form['rating']
@@ -94,7 +93,7 @@ def addRating(diningHall, item):
     print command
     cursor.execute(command)
     print "dcj"
-    return redirect('/canyonvista')
+    return redirect(url_for('renderCV'))
     #return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
     #                       lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
     #                       dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
