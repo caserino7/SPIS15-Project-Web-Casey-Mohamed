@@ -81,6 +81,14 @@ app.jinja_env.globals.update(rating_for=rating_for)
 def renderMain():
     return render_template('main.html')
 
+@app.route('/addRating/<diningHall>/<item>')
+def addRating(diningHall, item):
+    cursor.execute("INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");")
+    return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
+                           lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
+                           dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
+                           ratings = getRatingsFromHall('Canyon Vista'))
+
 #defines CV page 
 @app.route('/canyonvista')
 def renderCV():
@@ -90,7 +98,6 @@ def renderCV():
                            lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
                            dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
                            ratings = getRatingsFromHall('Canyon Vista'))
-                           #ratings = ratings.ratingsIndex["Canyon Vista"])
 
 #defines 65d's page
 @app.route('/64degrees')
