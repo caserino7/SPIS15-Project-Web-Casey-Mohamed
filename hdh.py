@@ -14,16 +14,18 @@ import ratings
 
 app = Flask(__name__)
 
-#urlparse.uses_netloc.append("postgres")
-#url = urlparse.urlparse(os.environ["DATABASE_URL"])
+urlparse.uses_netloc.append("postgres")
+url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
-#conn = psycopg2.connect(
-#    database=url.path[1:],
-#    user=url.username,
-#    password=url.password,
-#    host=url.hostname,
-#    port=url.port
-#)
+conn = psycopg2.connect(
+    database=url.path[1:],
+    user=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port
+)
+
+cursor = conn.cursor()
 
 #input = item and item's rating
 #outputs thumbs up/down
@@ -39,6 +41,16 @@ def rating_for (item, ratings):
     #return no rating if item isn't in dictionary
     else:
         return ''
+
+def CVratings():
+    db = {}
+    cursor.execute("""SELECT item,rating FROM ratings WHERE dining_hall='Canyon Vista';""")
+    while True:
+        db_row = cursor.fetchone()
+        if db_row == None:
+            break
+        db[str(db_row[0])] = db_row[1]
+    return db
 
 #defines image file for thumbs up from glyphicon 
 def thumbsUp():
@@ -63,8 +75,9 @@ def renderCV():
     #ratings variable pulls from ratings.py and ratings dictionary
     return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
                            lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
-                           dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),                           
-                           ratings = ratings.ratingsIndex["Canyon Vista"])
+                           dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
+                           ratings = CVratings())
+                           #ratings = ratings.ratingsIndex["Canyon Vista"])
 
 #defines 65d's page
 @app.route('/64degrees')
