@@ -81,7 +81,7 @@ app.jinja_env.globals.update(rating_for=rating_for)
 def renderMain():
     return render_template('main.html')
 
-@app.route('/addRating/<diningHall>/<item>')
+@app.route('/addRating/<diningHall>/<item>', methods=['GET', 'POST'])
 def addRating(diningHall, item):
     print "request.method = " + request.method
     print "dining hall: " + diningHall + " item: " + item
