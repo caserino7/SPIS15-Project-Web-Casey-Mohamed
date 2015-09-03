@@ -88,8 +88,10 @@ def addRating(diningHall, item):
     rating = request.form['rating']
     print "dining hall: " + diningHall + " item: " + item + " rating: " + rating
     command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
+    print cursor
     print command
     cursor.execute(command)
+    print "dcj"
     return redirect('/canyonVista')
     #return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
     #                       lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
