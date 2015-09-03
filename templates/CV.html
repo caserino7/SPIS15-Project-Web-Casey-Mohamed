@@ -28,9 +28,8 @@
     <td>
 	{% for item in lunch %}
 	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
-	<form action="">
-	 <p> Rating:</p>
-	  <select>
+	<form action="" text-align="left" >
+	  <select  >
 	    <option value="Good">Good</option>
 	    <option value="Bad">Bad</option>
 	  </select>
