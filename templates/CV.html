@@ -23,6 +23,17 @@
     <td>
 	{% for item in breakfast %}
 	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
+	<div align="right">
+	  <form action="" >
+	    <select  >
+	      <option value="Neutral">-</option>
+	      <option value="Good">Good</option>
+	      <option value="Bad">Bad</option>
+	    </select>
+	    <br>
+	    <input type="submit">
+	  </form>
+	</div>
 	{% endfor %} 
     </td>
     <td>
@@ -35,6 +46,7 @@
 	      <option value="Good">Good</option>
 	      <option value="Bad">Bad</option>
 	    </select>
+	    <br>
 	    <input type="submit">
 	  </form>
 	</div>
@@ -44,7 +56,18 @@
     <td>
 	{% for item in dinner %}
 	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
-	{% endfor %} 
+	<div align="right">
+	  <form action="" >
+	    <select  >
+	      <option value="Neutral">-</option>
+	      <option value="Good">Good</option>
+	      <option value="Bad">Bad</option>
+	    </select>
+	    <br>
+	    <input type="submit">
+	  </form>
+	</div>
+	{% endfor %}
     </td>
   </tr>
 </table>
