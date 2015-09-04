@@ -88,7 +88,7 @@ def addRating(diningHall, item):
 	print rating
 	command = "SELECT rating FROM ratings WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 	print command
-	before = []
+	before = ['']
 	print 'blah'
 	cursor.execute(command)
 	print 'blah'
@@ -97,8 +97,8 @@ def addRating(diningHall, item):
 	if data != None:
 		print 'blah'
 		before[0] = data[0]
-	print "data: " + before
-	if before == []:
+	print before[0]
+	if before[0] == '':
 		if rating != '':
 			command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
 			cursor.execute(command)
