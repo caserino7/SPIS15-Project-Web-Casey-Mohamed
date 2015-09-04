@@ -92,7 +92,8 @@ def addRating(diningHall, item):
 	print 'blah'
 	cursor.execute(command)
 	print 'blah'
-	data = cursor.fetchone()
+	data = cursor.fetchall()
+	print 'blah3'
 	if data != None:
 		before[item] = data[0]
 	print "data: " + before
