@@ -86,10 +86,12 @@ def renderMain():
 def addRating(diningHall, item):
 	rating = request.form['rating']
 	print rating
-	cursor.execute("SELECT rating FROM ratings WHERE dining_hall = '" + diningHall + "' and item = '" + item + "';")
-	data = cursor.fetchone()
+	command = "SELECT rating FROM ratings WHERE dining_hall = '" + diningHall + "' and item = '" + item + "';"
+	print command
+	cursor.execute(command)
+	data = cursor.fetchall()
 	print "data: " + data
-	if data == None:
+	if data == ():
 		if rating != '':
 			command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
 			cursor.execute(command)
@@ -102,7 +104,7 @@ def addRating(diningHall, item):
 		cursor.execute(command)
 		conn.commit()
 		return renderCV()
-	elif data[0] != rating:
+	elif  str(data[0]) != str(rating):
 		command = "UPDATE ratings SET rating='" + rating + "' WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 		cursor.execute(command)
 		conn.commit()
