@@ -95,6 +95,7 @@ def addRating(diningHall, item):
 	data = cursor.fetchall()
 	print 'blah3'
 	if data != None:
+		print 'blah'
 		before[item] = data[0]
 	print "data: " + before
 	if before == {}:
