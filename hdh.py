@@ -83,20 +83,37 @@ def renderMain():
     return render_template('main.html')
 
 @app.route('/addRating/<diningHall>/<item>', methods=('GET', 'POST'))
+# def addRating(diningHall, item):
+    # print "request.method = " + request.method
+    # print "dining hall: " + diningHall + " item: " + item
+    # rating = request.form['rating']
+    # print "dining hall: " + diningHall + " item: " + item + " rating: " + rating
+    # command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
+    # print cursor
+    # print command
+    # cursor.execute(command)
+    # print "Commiting"
+    # conn.commit()
+    # print "dcj"
+    # print "url_for = " + url_for('renderCV')
+    # return renderCV()
+	
 def addRating(diningHall, item):
-    print "request.method = " + request.method
-    print "dining hall: " + diningHall + " item: " + item
-    rating = request.form['rating']
-    print "dining hall: " + diningHall + " item: " + item + " rating: " + rating
-    command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
-    print cursor
-    print command
-    cursor.execute(command)
-    print "Commiting"
-    conn.commit()
-    print "dcj"
-    print "url_for = " + url_for('renderCV')
-    return renderCV()
+	rating = request.form['rating']
+	cursor.execute("SELECT rating FROM ratings WHERE dining_hall='" + diningHall + "' and '" + item + "';")
+	data = fetchone()
+	if data[0] == rating:
+		return renderCV()
+	elif data[0] != rating:
+		command = "UPDATE ratings SET rating='" + newRating + "' WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
+		cursor.execute(command)
+		conn.commit()
+		return renderCV()
+	else:
+		command = "DELETE FROM ratings WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
+		cursor.execute(command)
+		conn.commit()
+		return renderCV()
 
 #defines CV page 
 @app.route('/canyonvista')
