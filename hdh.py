@@ -82,7 +82,7 @@ app.jinja_env.globals.update(rating_for=rating_for)
 def renderMain():
     return render_template('main.html')
 
-@app.route('/addRating/<diningHall>/<item>', methods=['GET', 'POST'])
+@app.route('/addRating/<diningHall>/<item>', methods=('GET', 'POST'))
 def addRating(diningHall, item):
     print "request.method = " + request.method
     print "dining hall: " + diningHall + " item: " + item
@@ -96,13 +96,7 @@ def addRating(diningHall, item):
     conn.commit()
     print "dcj"
     print "url_for = " + url_for('renderCV')
-    #print "redirect(url..) = " + redirect(url_for('renderCV'))
-    return renderCV()
-    #return render_template('CV.html', breakfast= scrape.allMealItems('Canyon Vista', 'Breakfast'),
-    #                       lunch = scrape.allMealItems('Canyon Vista', 'Lunch'),
-    #                       dinner = scrape.allMealItems('Canyon Vista', 'Dinner'),
-    #                       ratings = getRatingsFromHall('Canyon Vista'),
-    #                       diningHall = diningHall)
+    return redirect(url_for('renderCV'))
 
 #defines CV page 
 @app.route('/canyonvista')
