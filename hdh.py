@@ -96,7 +96,7 @@ def addRating(diningHall, item):
     conn.commit()
     print "dcj"
     print "url_for = " + url_for('renderCV')
-    return redirect(url_for('renderCV'))
+    return renderCV()
 
 #defines CV page 
 @app.route('/canyonvista')
