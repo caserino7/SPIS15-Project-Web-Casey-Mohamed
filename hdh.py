@@ -102,6 +102,7 @@ def addRating(diningHall, item):
 	rating = request.form['rating']
 	cursor.execute("SELECT rating FROM ratings WHERE dining_hall='" + diningHall + "' and '" + item + "';")
 	data = fetchone()
+	print data
 	if data == None and rating != '':
 		command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
 		cursor.execute(command)
