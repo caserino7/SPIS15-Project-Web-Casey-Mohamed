@@ -44,7 +44,6 @@ def rating_for (item, ratings):
 
 #gets the ratings from the database
 def getRatingsFromHall(diningHall):
-    print cursor
     ratings = {}
     cursor.execute("SELECT item,rating FROM ratings WHERE dining_hall='" + diningHall + "';")
     while True:
