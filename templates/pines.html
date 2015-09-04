@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <title>Pines Menu</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1 class="title">Pines</h1>
+<br>
+<table align="center">
+  <tr>
+    <td class="menuType">Breakfast</td>
+    <td class="menuType">Lunch</td>
+    <td class="menuType">Dinner</td>
+  </tr>
+  <tr>
+    <td>
+	{% for item in breakfast %}
+	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
+	<div align="right">
+	  <form action="/addRating/{{diningHall}}/{{item}}" method="post" >
+	    <select name="rating"  >
+	      <option value="">-</option>
+	      <option value="True" > Good </a></option>
+	      <option value="False">Bad</option>
+	    </select>
+	    <input type="submit">
+	  </form>
+	</div>
+	{% endfor %} 
+    </td>
+    <td>
+	{% for item in lunch %}
+	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
+	<div align="right">
+	  <form action="/addRating/{{diningHall}}/{{item}}" method="post" >
+	    <select name="rating"  >
+	      <option value="">-</option>
+	      <option value="True" > Good </a></option>
+	      <option value="False">Bad</option>
+	    </select>
+	    <input type="submit">
+	  </form>
+	</div>
+	{% endfor %} 
+
+    </td>
+    <td>
+	{% for item in dinner %}
+	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
+	<div align="right">
+	  <form action="/addRating/{{diningHall}}/{{item}}" method="post" >
+	    <select name= "rating" >
+	      <option value="">-</option>
+	      <option value="True">Good</option>
+	      <option value="False">Bad</option>
+	    </select>
+	    <input type="submit">
+	  </form>
+	</div>
+	{% endfor %}
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
