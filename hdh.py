@@ -82,6 +82,7 @@ app.jinja_env.globals.update(rating_for=rating_for)
 def renderMain():
     return render_template('main.html')
 
+#modifies the database based on user input
 @app.route('/addRating/<diningHall>/<item>', methods=('GET', 'POST'))
 def addRating(diningHall, item):
 	rating = request.form['rating']
@@ -112,21 +113,6 @@ def addRating(diningHall, item):
 	else:
 		return renderCV()
 		
-# def addRating(diningHall, item):
-    # print "request.method = " + request.method
-    # print "dining hall: " + diningHall + " item: " + item
-    # rating = request.form['rating']
-    # print "dining hall: " + diningHall + " item: " + item + " rating: " + rating
-    # command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
-    # print cursor
-    # print command
-    # cursor.execute(command)
-    # print "Commiting"
-    # conn.commit()
-    # print "dcj"
-    # print "url_for = " + url_for('renderCV')
-    # return renderCV()
-
 #defines CV page 
 @app.route('/canyonvista')
 def renderCV():
