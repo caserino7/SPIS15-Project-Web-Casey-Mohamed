@@ -86,7 +86,7 @@ def renderMain():
 def addRating(diningHall, item):
 	rating = request.form['rating']
 	cursor.execute("SELECT rating FROM ratings WHERE dining_hall = '" + diningHall + "' and item = '" + item + "';")
-	data = fetchone()
+	data = cursor.fetchone()
 	print "data: " + data
 	if data == () and rating != '':
 		command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
