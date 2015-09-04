@@ -88,17 +88,17 @@ def addRating(diningHall, item):
 	print rating
 	command = "SELECT rating FROM ratings WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 	print command
-	before = {}
+	before = []
 	print 'blah'
 	cursor.execute(command)
 	print 'blah'
 	data = cursor.fetchall()
 	print 'blah3'
-	if data != None:
+	if data != ():
 		print 'blah'
-		before[item] = data[0]
+		before[0] = data[0]
 	print "data: " + before
-	if before == {}:
+	if before == []:
 		if rating != '':
 			command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
 			cursor.execute(command)
@@ -111,7 +111,7 @@ def addRating(diningHall, item):
 		cursor.execute(command)
 		conn.commit()
 		return renderCV()
-	elif  before[item] != rating:
+	elif  before[0] != rating:
 		command = "UPDATE ratings SET rating='" + rating + "' WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 		cursor.execute(command)
 		conn.commit()
