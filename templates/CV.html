@@ -24,13 +24,12 @@
 	{% for item in breakfast %}
 	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
 	<div align="right">
-	  <form action="/addRating/{{diningHall}}/{{item}}" >
+	  <form action="/addRating/{{diningHall}}/{{item}}" method="post" >
 	    <select name="rating"  >
-	      <option value="Neutral" >-</option>
+	      <option value="" >-</option>
 	      <option value="True" > Good </a></option>
 	      <option value="False">Bad</option>
 	    </select>
-	    <br>
 	    <input type="submit">
 	  </form>
 	</div>
@@ -42,11 +41,10 @@
 	<div align="right">
 	  <form action="/addRating/{{diningHall}}/{{item}}" method="post" >
 	    <select name="rating"  >
-	      <option value="Neutral" >-</option>
+	      <option value="" >-</option>
 	      <option value="True" > Good </a></option>
 	      <option value="False">Bad</option>
 	    </select>
-	    <br>
 	    <input type="submit">
 	  </form>
 	</div>
@@ -57,13 +55,12 @@
 	{% for item in dinner %}
 	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
 	<div align="right">
-	  <form action="" >
+	  <form action="/addRating/{{diningHall}}/{{item}}" method="post" >
 	    <select  >
 	      <option value="Neutral">-</option>
 	      <option value="Good">Good</option>
 	      <option value="Bad">Bad</option>
 	    </select>
-	    <br>
 	    <input type="submit">
 	  </form>
 	</div>
