@@ -89,7 +89,7 @@ def addRating(diningHall, item):
 	cursor.execute("SELECT rating FROM ratings WHERE dining_hall = '" + diningHall + "' and item = '" + item + "';")
 	data = cursor.fetchone()
 	print "data: " + data
-	if data == None
+	if data == None:
 		if rating != '':
 			command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
 			cursor.execute(command)
