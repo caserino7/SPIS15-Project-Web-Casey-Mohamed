@@ -56,7 +56,7 @@
 	<p>{{ item }}{{ rating_for(item, ratings)|safe }}</p>
 	<div align="right">
 	  <form action="/addRating/{{diningHall}}/{{item}}" method="post" >
-	    <select  >
+	    <select name= "rating" >
 	      <option value="">-</option>
 	      <option value="True">Good</option>
 	      <option value="False">Bad</option>
