@@ -102,17 +102,19 @@ def addRating(diningHall, item):
 	rating = request.form['rating']
 	cursor.execute("SELECT rating FROM ratings WHERE dining_hall='" + diningHall + "' and '" + item + "';")
 	data = fetchone()
-	if data[0] == rating:
+	if data == None and rating != '':
+		command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
+		cursor.execute(command)
+		conn.commit()
 		return renderCV()
 	elif data[0] != rating:
-		command = "UPDATE ratings SET rating='" + newRating + "' WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
+		command = "UPDATE ratings SET rating='" + rating + "' WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 		cursor.execute(command)
 		conn.commit()
 		return renderCV()
+	elif data[0] == rating:
+		return renderCV()
 	else:
-		command = "DELETE FROM ratings WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
-		cursor.execute(command)
-		conn.commit()
 		return renderCV()
 
 #defines CV page 
