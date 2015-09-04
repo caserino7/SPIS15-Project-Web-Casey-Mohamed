@@ -54,17 +54,15 @@ def getRatingsFromHall(diningHall):
         ratings[str(data[0])] = data[1]
     return ratings
 
-#adds a rating to the database
-def addRating(diningHall, item, rating):
-    cursor.execute("INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");")
-
-#changes the rating of a specific item at a specific dining hall
-def changeRating(diningHall, item, newRating):
-    cursor.execute("UPDATE ratings SET rating='" + newRating + "' WHERE diningHall='" + diningHall + "' and item='" + item + "';")
-
-#deletes a rating from the database
-def deleteRating(diningHall, item):
-    cursor.execute("DELETE FROM ratings WHERE diningHall='" + diningHall + "' and item='" + item + "';")
+def renderPage(diningHall):
+	if diningHall == 'Canyon Vista':
+		return renderCV()
+	elif diningHall == '64 Degrees':
+		return render64d()
+	elif diningHall == "Pines":
+		return renderPines()
+	else:
+		return renderMain()
 
 #defines image file for thumbs up from glyphicon 
 def thumbsUp():
@@ -97,21 +95,21 @@ def addRating(diningHall, item):
 			command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
 			cursor.execute(command)
 			conn.commit()
-			return renderCV()
+			return renderPage(diningHall)
 		else:
-			return renderCV()
+			return renderPage(diningHall)
 	elif rating == '':
 		command = "DELETE FROM ratings WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 		cursor.execute(command)
 		conn.commit()
-		return renderCV()
+		return renderPage(diningHall)
 	elif  before[0] != rating:
 		command = "UPDATE ratings SET rating='" + rating + "' WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 		cursor.execute(command)
 		conn.commit()
-		return renderCV()
+		return renderPage(diningHall)
 	else:
-		return renderCV()
+		return renderPage(diningHall)
 		
 #defines CV page 
 @app.route('/canyonvista')
@@ -125,10 +123,14 @@ def renderCV():
                            ratings = getRatingsFromHall('Canyon Vista'),
                            diningHall = 'Canyon Vista')
 
-#defines 65d's page
+#defines 64d's page
 @app.route('/64degrees')
 def render64d():
-    return redirect('https://www.google.com')
+    return render_template('64degrees.html', breakfast = scrape.allMealItems('64 Degrees', 'Breakfast'),
+                           lunch = scrape.allMealItems('64 Degrees', 'Lunch'),
+                           dinner = scrape.allMealItems('64 Degrees', 'Dinner'),
+                           ratings = getRatingsFromHall('64 Degrees'),
+                           diningHall = '64 Degrees')
 
 #defines the pines page
 @app.route('/pines')
