@@ -89,9 +89,9 @@ def addRating(diningHall, item):
 	command = "SELECT rating FROM ratings WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 	print command
 	before = {}
-    cursor.execute(command)
+	cursor.execute(command)
     data = cursor.fetchone()
-	if data != None
+	if data != None:
 		before[item] = data[0]
 	print "data: " + before
 	if before == {}:
