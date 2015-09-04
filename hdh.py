@@ -85,7 +85,7 @@ def renderMain():
 @app.route('/addRating/<diningHall>/<item>', methods=('GET', 'POST'))
 def addRating(diningHall, item):
 	rating = request.form['rating']
-	cursor.execute("SELECT rating FROM ratings WHERE dining_hall='" + diningHall + "' and '" + item + "';")
+	cursor.execute("SELECT rating FROM ratings WHERE dining_hall = '" + diningHall + "' and item = '" + item + "';")
 	data = fetchone()
 	print "data: " + data
 	if data == () and rating != '':
