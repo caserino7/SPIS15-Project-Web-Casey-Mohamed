@@ -1,5 +1,5 @@
 body {
-  background-color: #00A3FF;
+  background-color: #E2FFFF;
 }
 
 h1 {
@@ -45,6 +45,10 @@ td.menuType {
 
 .glyphicon-thumbs-up {
     color: green;
+}
+
+.menuType {
+
 }
 
 
