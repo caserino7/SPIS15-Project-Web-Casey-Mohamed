@@ -85,11 +85,20 @@ def renderMain():
 @app.route('/addRating/<diningHall>/<item>', methods=('GET', 'POST'))
 def addRating(diningHall, item):
 	rating = request.form['rating']
+	print rating
 	cursor.execute("SELECT rating FROM ratings WHERE dining_hall = '" + diningHall + "' and item = '" + item + "';")
 	data = cursor.fetchone()
 	print "data: " + data
-	if data == () and rating != '':
-		command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
+	if data == None
+		if rating != '':
+			command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
+			cursor.execute(command)
+			conn.commit()
+			return renderCV()
+		else:
+			return renderCV()
+	elif rating == '':
+		command = "DELETE FROM ratings WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 		cursor.execute(command)
 		conn.commit()
 		return renderCV()
@@ -97,8 +106,6 @@ def addRating(diningHall, item):
 		command = "UPDATE ratings SET rating='" + rating + "' WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 		cursor.execute(command)
 		conn.commit()
-		return renderCV()
-	elif data[0] == rating:
 		return renderCV()
 	else:
 		return renderCV()
