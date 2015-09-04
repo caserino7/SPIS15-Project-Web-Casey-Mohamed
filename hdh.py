@@ -88,7 +88,7 @@ def addRating(diningHall, item):
 	print rating
 	command = "SELECT rating FROM ratings WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 	print command
-	before = {}
+	#before = {}
 	print blah
 	cursor.execute(command)
 	print blah
