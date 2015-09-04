@@ -137,7 +137,7 @@ def render64d():
 def renderPines():
     return render_template('pines.html', breakfast = scrape.allMealItems('Pines', 'Breakfast'),
                            lunch = scrape.allMealItems('Pines', 'Lunch'),
-                           dinner = scrape.allMealItems('6Pines', 'Dinner'),
+                           dinner = scrape.allMealItems('Pines', 'Dinner'),
                            ratings = getRatingsFromHall('Pines'),
                            diningHall = 'Pines')
 
