@@ -14,6 +14,7 @@ prefix="http://hdh.ucsd.edu/DiningMenus/default.aspx?i="
 menuPages['Canyon Vista']=prefix + "24"
 menuPages['Cafe Ventanas']=prefix + "18"
 menuPages['64 Degrees']=prefix + "64"
+menuPages['Pines']=prefix + "01"
 
 #requests CV's menu page
 page = requests.get(menuPages['Canyon Vista'])
