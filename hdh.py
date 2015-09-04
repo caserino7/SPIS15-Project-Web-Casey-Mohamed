@@ -85,19 +85,12 @@ def renderMain():
 @app.route('/addRating/<diningHall>/<item>', methods=('GET', 'POST'))
 def addRating(diningHall, item):
 	rating = request.form['rating']
-	print rating
 	command = "SELECT rating FROM ratings WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
-	print command
 	before = ['']
-	print 'blah'
 	cursor.execute(command)
-	print 'blah'
 	data = cursor.fetchone()
-	print 'blah3'
 	if data != None:
-		print 'blah'
 		before[0] = data[0]
-	print before[0]
 	if before[0] == '':
 		if rating != '':
 			command = "INSERT INTO ratings VALUES ('" + diningHall + "', '" + item + "', " + rating + ");"
