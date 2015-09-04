@@ -86,7 +86,7 @@ def renderMain():
 def addRating(diningHall, item):
 	rating = request.form['rating']
 	print rating
-	command = "SELECT rating FROM ratings WHERE dining_hall = '" + diningHall + "' and item = '" + item + "';"
+	command = "SELECT rating FROM ratings WHERE dining_hall='" + diningHall + "' and item='" + item + "';"
 	print command
 	cursor.execute(command)
 	data = cursor.fetchall()
